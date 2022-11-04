@@ -26,8 +26,8 @@ const request = axios.create({
 request.interceptors.request.use(
   (config) => {
     // globalLoading.value = true
-    const token = localStorage.get(ACCESS_TOKEN);
-    const userinfo = localStorage.get(USER_INFO);
+    const token = localStorage.getItem(ACCESS_TOKEN);
+    const userinfo:any = localStorage.getItem(USER_INFO);
     if (token) {
       config.headers["token"] = token; // 让每个请求携带自定义 token 请根据实际情况自行修改
     }

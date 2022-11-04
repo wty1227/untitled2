@@ -1,4 +1,4 @@
-import { getInfo, login, logout } from "@/api/login";
+import { getInfo, login, logout } from "@/views/user/login";
 import { removeToken, setToken } from "@/utils/token";
 import { welcome } from "@/utils";
 
@@ -30,15 +30,16 @@ const user = {
   actions: {
     // 登录
     Login({ commit }: any, userInfo: any) {
-      const username = userInfo.username.trim();
-      const password = userInfo.password;
-      const code = userInfo.code;
-      const uuid = userInfo.uuid;
+      // const username = userInfo.username.trim();
+      // const password = userInfo.password;
+      // const code = userInfo.code;
+      // const uuid = userInfo.uuid;
       return new Promise((resolve, reject) => {
         login(userInfo)
-          .then((res) => {
-            setToken(res.data.token);
-            commit("SET_TOKEN", res.data.token);
+          .then((res:any) => {
+            // console.log(res);
+            setToken(res.token);
+            commit("SET_TOKEN", res.token);
             resolve(res);
           })
           .catch((error) => {

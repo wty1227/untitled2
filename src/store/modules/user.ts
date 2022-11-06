@@ -36,10 +36,10 @@ const user = {
       // const uuid = userInfo.uuid;
       return new Promise((resolve, reject) => {
         login(userInfo)
-          .then((res:any) => {
+          .then((res: any) => {
             // console.log(res);
-            setToken(res.token);
-            commit("SET_TOKEN", res.token);
+            setToken(res.data.token);
+            commit("SET_TOKEN", res.data.token);
             resolve(res);
           })
           .catch((error) => {

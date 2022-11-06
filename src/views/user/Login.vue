@@ -56,25 +56,25 @@
     <!--        </a-input>-->
     <!--      </a-form-item>-->
     <!--    </a-form>-->
-<!--    <div style="margin: 5px auto; width: 300px">-->
-<!--      username:-->
-<!--      <input type="text" name="username" v-model="formRef.username" />-->
-<!--    </div>-->
-<!--    <div style="margin: 5px auto; width: 300px">-->
-<!--      password:-->
-<!--      <input type="text" name="password" v-model="formRef.password" />-->
-<!--    </div>-->
-<!--    <div style="margin: 5px auto; width: 300px">-->
-<!--      rememberMeMe:-->
-<!--      <input-->
-<!--        type="checkbox"-->
-<!--        name="rememberMeMe"-->
-<!--        v-model="formRef.rememberMeMe"-->
-<!--      />-->
-<!--    </div>-->
-<!--    <div style="margin: 5px auto; width: 300px">-->
-<!--      <button style="width: 100%" @click="handleSubmit">login2</button>-->
-<!--    </div>-->
+    <!--    <div style="margin: 5px auto; width: 300px">-->
+    <!--      username:-->
+    <!--      <input type="text" name="username" v-model="formRef.username" />-->
+    <!--    </div>-->
+    <!--    <div style="margin: 5px auto; width: 300px">-->
+    <!--      password:-->
+    <!--      <input type="text" name="password" v-model="formRef.password" />-->
+    <!--    </div>-->
+    <!--    <div style="margin: 5px auto; width: 300px">-->
+    <!--      rememberMeMe:-->
+    <!--      <input-->
+    <!--        type="checkbox"-->
+    <!--        name="rememberMeMe"-->
+    <!--        v-model="formRef.rememberMeMe"-->
+    <!--      />-->
+    <!--    </div>-->
+    <!--    <div style="margin: 5px auto; width: 300px">-->
+    <!--      <button style="width: 100%" @click="handleSubmit">login2</button>-->
+    <!--    </div>-->
   </div>
 </template>
 
@@ -110,7 +110,7 @@ export default defineComponent({
     // console.log("setup -> props", props);
     const useForm = Form.useForm;
     const store = useStore();
-    const router = useRouter()
+    const router = useRouter();
     const Login = (userInfo) => store.dispatch("Login", userInfo);
 
     const state = reactive({
@@ -157,25 +157,17 @@ export default defineComponent({
       validate()
         .then(() => {
           state.loginBtn = true;
-          console.log(formRef);
-          console.log(toRaw(formRef));
-
-          // router.push({ path: "/main"})
-          // let postData = {
-          //   username: formRef.username,
-          //   password: formRef.password,
-          //   rememberMe: formRef.rememberMe,
-          // };
-          // console.log(postData);
+          // console.log(formRef);
+          // console.log(toRaw(formRef));
           Login(toRaw(formRef))
             .then((res) => {
               // console.log(res);
-              loginSuccess(res)
+              loginSuccess(res);
             })
             .catch((err) => {
-              console.log("err:",err);
-              requestFailed(err)
-            } )
+              // console.log("err:", err);
+              // requestFailed(err);
+            })
             .finally(() => {
               state.loginBtn = false;
             });

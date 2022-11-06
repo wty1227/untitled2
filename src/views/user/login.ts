@@ -4,7 +4,7 @@ import router from "@/router";
 
 export function login(parameter) {
   return request({
-    url: "/jwt/login",
+    url: "/user/login",
     method: "post",
     data: parameter
   });

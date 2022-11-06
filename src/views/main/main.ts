@@ -12,7 +12,7 @@ export function getNotice(parameter) {
 export function Permission(parameter) {
   return request({
     url: "/user/showStudentsCourseGrade?courseId=1",
-    method: "get",
+    method: "post",
     data: parameter,
   });
 }
@@ -21,7 +21,7 @@ export function Permission(parameter) {
 export function Unpermission(parameter) {
   return request({
     url: "/user/getTeachers?schoolId=1",
-    method: "get",
+    method: "post",
     data: parameter,
   });
 }
